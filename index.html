@@ -111,6 +111,7 @@ td a{color:var(--ink);font-weight:600}td a:hover{color:var(--accent2)}
     <a href="#ex4">4 · Excel Power Hour</a>
     <a href="#ex5">5 · Outlook + 5-Min Exec Moments</a>
     <a href="#ex6">6 · Cowork Finale → Dashboard</a>
+    <a href="#ex7">⭐ 7 · Industry Power Move (Bonus)</a>
     <h3>Resources</h3>
     <a href="#tips">Prompt tips</a>
   </nav>
@@ -180,6 +181,7 @@ td a{color:var(--ink);font-weight:600}td a:hover{color:var(--accent2)}
   <div>20 min</div><div><b>Exercise 4 · Excel Power Hour (Insights · Edit · Plan · Analyst)</b></div><div>Basic + ⭐</div>
   <div>15 min</div><div><b>Exercise 5 · Outlook + 5-Minute Executive Moments (Outlook · Teams · Word · PPT)</b></div><div>Basic</div>
   <div>25 min</div><div><b>Exercise 6 · Cowork Finale — mail merge · CV screen · live HTML dashboard</b></div><div>Premium ⭐</div>
+  <div>15 min</div><div><b>Exercise 7 (Bonus) · Industry Power Move — the single GM decision Copilot can demolish</b></div><div>Bonus ⭐</div>
   <div>5 min</div><div><b>Q&amp;A</b></div><div>Talk</div>
 </div>
 <div class="callout" style="margin-top:14px"><b>Total:</b> ≈ 100 minutes. Designed for a GM audience with mixed M365 Copilot Basic + Premium seats. Premium-only items are marked ⭐ and every one has a Basic fallback.</div>
@@ -672,6 +674,53 @@ Pause and confirm before sending the email or the meeting invite.<button class="
 </div>
 
 <div class="callout warn"><b>Basic-license fallback:</b> if Cowork is not available, run each step as a standalone prompt in Copilot Chat. Same artefacts — you orchestrate instead of Copilot.</div>
+</section>
+
+
+<section id="ex7">
+<div class="modulehead"><div class="num">7</div><h2>Exercise 7 (Bonus) · PPA Quarterly Compliance & Steam-Decline Mitigation Briefing<small>15 min · Copilot Chat + Word Copilot · Basic + Premium ⭐ · Industry power move</small></h2></div>
+<div class="callout good"><b>The single decision your GM grinds through every month — done in 15 minutes.</b><br>The quarterly PPA review with PLN is in 5 days. The GM needs the compliance letter, regulator Q&A pack, and a Board one-pager on the steam-decline mitigation case — usually a week of work for the Reliability and Regulatory teams.</div>
+
+<div class="card">
+<h3>Why this is the most relevant Copilot moment for Contoso Geo</h3>
+<ul>
+<li>Drafts the PLN compliance letter (availability, generation, force majeure, remediation)</li>
+<li>Builds the regulator Q&A pack — likely questions + answers grounded on our KPIs</li>
+<li>Frames the steam-decline mitigation CapEx as a 1-page Board investment case</li>
+</ul>
+
+<div class="activity">
+  <div class="head"><span class="num">Task 7</span><span class="time">15 min</span><span class="file">🚀 Industry-specific GM power move</span></div>
+  <h4>One prompt, one decision pack, fully grounded</h4>
+  <p><b>Hands-on:</b> open M365 Copilot Chat (or Researcher for the deeper option). Reference the relevant sample files with <code>/</code>. Paste:</p>
+  <div class="prompt">Act as the Plant Reliability lead supporting the General Manager · Plant Operations of Contoso Geothermal.
+
+We have a quarterly PPA review with PLN in 5 days. Use /02 Contoso_KPI_Dashboard.xlsx (Plant Availability %, Net Generation GWh, Forced Outage Rate %, Specific Steam Use, TRIR) and /05 Contoso_Strategic_Memo.docx (steam-decline context).
+
+Produce three artefacts:
+
+1. PLN PPA QUARTERLY COMPLIANCE LETTER (Word doc, ~1.5 pages):
+   - Plant-by-plant availability vs PPA contracted MW
+   - Net generation vs nominated profile
+   - Force-majeure events and their impact (be specific about Wayang Windu / Salak / Darajat)
+   - Remediation plan for any underperformance
+   - Tone: factual, regulatory, no marketing language
+
+2. REGULATOR Q&A PACK (Word doc):
+   - 10 likely questions PLN will ask, with our answers
+   - Group by: availability, safety, ESG / Scope 1/2, contracts, future commitments
+
+3. BOARD ONE-PAGER — STEAM-DECLINE MITIGATION CASE (Word doc, 1 page):
+   - The problem in 3 lines
+   - Three options (do nothing / mid-life workover / new make-up wells) with cost & MW recovery
+   - Recommended option with payback and IRR
+   - Decision asked of the Board
+
+Mark every assumption [ASSUMPTION:...]. Do not invent KPI numbers — use what is in the workbook.<button class="copy" onclick="cp(this)">Copy</button></div>
+  <div class="callout"><b>The artefact:</b> Three Board-ready Word documents, generated in 10 minutes.</div>
+  <div class="callout warn"><b>For the GM in the room:</b> this is the use case worth piloting first. It maps 1:1 to the most expensive analyst hours your team spends every quarter — and Copilot does it in minutes, grounded on your own files.</div>
+</div>
+</div>
 </section>
 
 
