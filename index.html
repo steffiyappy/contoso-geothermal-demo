@@ -534,53 +534,62 @@ Start with a header: Daily briefing – Day, Date. Follow with a sub-header stat
 </div>
 </div>
 </section><div class="lab-nav-ihh"><button class="secondary" data-go="files">← Sample Files</button><button data-go="ex2">Next: Prepare for Quarter Closing →</button></div></div><div class="view-ihh" id="view-ex2"><section id="ex2">
-<div class="modulehead"><div class="num">2</div><h2>Exercise 2 · Prepare for Quarter Closing<small>Cowork · one prompt · seven deliverables · follow along or watch and try later</small></h2></div>
-<div class="callout good"><b>Follow along if you have Cowork enabled.</b> If not, sit with us for the walkthrough and try it later in your own tenant. One prompt drives analysis, a Word summary, an executive email, a meeting invite, a live HTML dashboard, a BCG/McKinsey deck built from the same memo, and a waterfall chart on the KPI slide. Cowork shows its plan first, you edit any step, and it pauses before sending email or scheduling.</div>
-<div class="callout" data-ihh-showcase="1" style="background:#fef3c7;border-color:#f59e0b"><b>Cowork is a paid Microsoft 365 Copilot feature.</b> If you have it, follow along. If not, watch this run - the prompt below is ready to copy for later.</div>
+<div class="modulehead"><div class="num">2</div><h2>Exercise 2 · Prepare for Quarter Closing<small>Cowork - follow along or watch and try later</small></h2></div>
+<div class="callout good"><b>Follow along if you have Cowork enabled.</b> If not, sit with us for the walkthrough and try it later in your own tenant. One prompt drives analysis, Word summary, executive email draft, meeting invite, live HTML dashboard, then the BCG-style deck. Copilot shows its plan first, you edit any step, and it pauses before sending email or scheduling.</div>
+<div class="callout" data-ihh-showcase="1" style="background:#fef3c7;border-color:#f59e0b"><b>Cowork is a paid Microsoft 365 Copilot feature.</b> If you have it, follow along. If not, watch this run - the prompts below are ready to copy for later.</div>
 <div class="card">
-<p class="lead">Open <b>Microsoft 365 Copilot Chat</b> and switch to <b>Cowork</b>. Reference <code>02 Contoso_KPI_Dashboard.xlsx</code> and <code>05 Contoso_Strategic_Memo.docx</code> with <code>/</code>. Cowork shows its plan first, you edit any step, and it pauses before sending email or scheduling.</p>
+<p class="lead">Open <b>Microsoft 365 Copilot Chat</b> and switch to <b>Cowork</b>. Reference <code>02 Contoso_KPI_Dashboard.xlsx</code> with <code>/</code>. Cowork shows its plan first, you edit any step, and it pauses before sending email or scheduling.</p>
 <div class="activity">
-<div class="head"><span class="num">Task 2</span><span class="file">👥 Cowork · one prompt · seven deliverables</span></div>
-<h4>The full quarter close in one Cowork run</h4>
-<div class="prompt">Cowork — close the quarter for General Manager · Plant Operations at Contoso Geothermal. Ground everything on /02 Contoso_KPI_Dashboard.xlsx and /05 Contoso_Strategic_Memo.docx. Use our Contoso Geothermal brand feel throughout (emerald + dark slate, professional, geothermal energy tone).
+<div class="head"><span class="num">Task 2</span><span class="file">👥 Cowork · multi-step</span></div>
+<h4>Five outputs. One HTML dashboard.</h4>
+<div class="prompt">Cowork — close the quarter for General Manager · Plant Operations at Contoso Geothermal. Use /02 Contoso_KPI_Dashboard.xlsx as the source of truth.
 
-Do all of the following, in order. Show your plan first, then execute. Pause before sending the email or scheduling the meeting.
+Do all of the following, in order:
 
-1. ANALYSE the Monthly_KPIs and Targets_vs_Actual tabs. For each KPI, identify the best and worst locations and the variance vs FY26 target. Flag any 🔴 locations and identify the single biggest variance.
+1. Analyse the Monthly_KPIs and Targets_vs_Actual tabs. For each KPI, identify the best and worst locations and the variance vs FY26 target. Flag any 🔴 locations.
 
-2. WORD MEMO — 1-page "Contoso Geo Q-End GM Summary": top 3 wins, top 3 issues, 90-day action plan with owners. Save it to OneDrive.
+2. Draft a 1-page Word document "Contoso Geo Q-End GM Summary" — top 3 wins, top 3 issues, 90-day action plan with owners. Save it to OneDrive.
 
-3. EXECUTIVE EMAIL DRAFT from the GM to the Operating Committee — short subject line, headline in the first sentence, link to the Word memo, link to the HTML dashboard, link to the exec deck.
+3. Draft an executive email from the GM to the Operating Committee with a headline and a link to the Word doc.
 
-4. MEETING INVITE — schedule a 30-minute Operating Committee review for Wednesday next week at 10:00 AM, agenda pulled from the 90-day action plan.
+4. Schedule a 30-minute Operating Committee review for Wednesday next week at 10:00 AM.
 
-5. INTERACTIVE HTML DASHBOARD — "Plant Reliability &amp; PPA Performance Dashboard"
-   - Brand-coloured header band
-   - 5 KPI scorecards across the top (one per KPI in Targets_vs_Actual, with RAG icons)
-   - Inline mini-table per location showing the last 3 months' trend
-   - "Top issue" and "Top action" callout boxes at the bottom
-   - All CSS inline, no JavaScript, mobile-friendly
-   - Save as Dashboard.html to OneDrive
+5. Generate a self-contained HTML KPI dashboard titled "Plant Reliability &amp; PPA Performance Dashboard":
+ - Brand-coloured header band
+ - 5 KPI scorecards across the top (one per KPI in Targets_vs_Actual, with RAG icons)
+ - Inline mini-table per location showing the last 3 months' trend
+ - "Top issue" and "Top action" callout boxes at the bottom
+ - All CSS inline, no JavaScript, mobile-friendly
+ - Save as Dashboard.html to OneDrive
 
-6. BCG / McKINSEY EXECUTIVE DECK — 8 slides in a "one message per slide" style, on our corporate template so brand fonts and colours are inherited. Save as ContosoGeo_QuarterClose_ExecDeck.pptx to OneDrive.
-   - Every slide uses an action-title headline (the title states the conclusion, not the topic)
-   - No more than 25 words per slide body
-   - Black and white with our brand accent for emphasis only
-   Structure:
-   1. Cover - "Contoso Geothermal - Quarter Close Review"
-   2. Executive summary - three headline messages, one line each
-   3. Where we are - top KPIs vs FY26 target (simple table)
-   4. What is working - two proof points with numbers
-   5. What is not working - two risks with numbers and root cause
-   6. What we will do - three actions, each with owner and by-when
-   7. Ask of the board - one clear ask
-   8. Appendix - data sources
+Stop and confirm before sending the email or scheduling the meeting.<button class="copy" onclick="cp(this)">Copy</button></div>
+<div class="callout"><b>Closing line for the audience:</b> "Cowork showed its plan first. You edited it. It paused before any external action. It returned five artefacts you own — including the dashboard you can put on a screen tomorrow morning."</div>
+</div>
+</div>
+<div class="card">
+<h3>2.B - Turn the memo into a board-ready deck (BCG / McKinsey style)</h3>
+<p class="lead">Same cowork session. Once the Word summary is signed off, open <b>PowerPoint</b> for the web, start from your corporate template (.potx) so brand fonts and colours are inherited, then open the Copilot pane.</p>
+<div class="activity">
+<div class="head"><span class="num">Task 2.B</span><span class="file">PowerPoint Copilot - Draft from your memo</span></div>
+<h4>One prompt. Eight slides. Consulting-firm style.</h4>
+<div class="prompt">Draft an 8-slide FY26 quarter-close deck in a BCG / McKinsey "one message per slide" style, for the General Manager - Plant Operations at Contoso Geothermal. Ground everything on /05 Contoso_Strategic_Memo.docx and /02 Contoso_KPI_Dashboard.xlsx.
 
-7. WATERFALL CHART on the "Where we are" slide of the deck — explain the variance between FY26 plan and FY26 actual for our headline KPI. Start with "Plan", show each driver as a positive or negative step, and end at "Actual". Use our brand accent for positive steps, dark slate for negative steps, neutral grey for totals. Data labels in absolute numbers. Add a one-line takeaway underneath starting with "So what:".
+Structure:
+1. Cover - "Contoso Geothermal - Quarter Close Review"
+2. Executive summary - three headline messages, one line each
+3. Where we are - top KPIs vs FY26 target (use a simple table)
+4. What is working - two proof points with numbers
+5. What is not working - two risks with numbers and root cause
+6. What we will do - three actions, each with owner and by-when
+7. Ask of the board - one clear ask
+8. Appendix - data sources
 
-Stop and confirm before sending the email (step 3) or scheduling the meeting (step 4). Do not ask any other clarifying questions — proceed.<button class="copy" onclick="cp(this)">Copy</button></div>
-<div class="callout"><b>Closing line for the audience:</b> "Cowork showed its plan first. We edited it. It paused before any external action. It returned seven artefacts we own — a dashboard for the screen tomorrow, a board-ready deck with a waterfall chart, a memo, an email and a calendar invite."</div>
-<div class="callout warn"><b>Reality check on the charts inside PowerPoint:</b> Copilot in PowerPoint reliably produces bar, column, line and waterfall charts. If the waterfall comes back as a plain bar, follow up with: <i>"Redo the chart on the 'Where we are' slide as a proper waterfall — plan → drivers → actual — with brand accent for positive steps and dark slate for negative steps."</i></div>
+Rules: one message per slide, action-title headlines (not topic titles), no more than 25 words per slide body, keep it black and white with our brand accent for emphasis only.</div>
+</div>
+<div class="activity">
+<div class="head"><span class="num">Task 2.C</span><span class="file">Edit with Copilot in PowerPoint - Add a waterfall</span></div>
+<h4>Polish the KPI slide with a chart Copilot builds for you</h4>
+<div class="prompt">On the "Where we are" slide, add a waterfall chart that explains the variance between FY26 plan and FY26 actual for our headline KPI. Start with "Plan", show each driver as a positive or negative step, and end at "Actual". Use our brand accent for positive steps, dark slate for negative steps, and neutral grey for the totals. Add data labels in absolute numbers. Then write a one-line takeaway underneath starting with "So what:".</div>
 </div>
 </div>
 </section><div class="lab-nav-ihh"><button class="secondary" data-go="ex1">← Daily Briefing</button><button data-go="ex3">Next: Market Intelligence →</button></div></div><div class="view-ihh" id="view-ex3"><section id="ex3">
