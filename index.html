@@ -656,16 +656,51 @@ Tone: direct, board-ready, no jargon. Max 350 words. Use [PLACEHOLDER] for anyth
 </div>
 </div>
 <div class="card">
-<h3>4.3 - Excel: Fix the workbook without writing a formula</h3>
-<p class="lead">Open <code>02 Contoso_KPI_Dashboard.xlsx</code> in <b>Excel</b> for the web. On the main data tab, click <b>Copilot -&gt; Edit</b>.</p>
+<h3>4.3 - Excel: Build a plant reliability dashboard - no formulas, no macros</h3>
+<p class="lead">Open <code>02 Contoso_KPI_Dashboard.xlsx</code> in <b>Excel</b> for the web. On the main data tab, click <b>Copilot -&gt; Edit</b> (and <b>Plan</b> if you have it enabled - it will lay out the steps before executing).</p>
 <div class="activity">
-<div class="head"><span class="num">Task 4.3</span><span class="file">Edit with Copilot in Excel</span></div>
-<h4>Add a variance column, format the outliers, insert a chart - three steps, one pane</h4>
-<div class="prompt">In this workbook, do all of the following using Edit:
-1. Add a column called "Variance vs Target %" and fill it with the correct formula per row.
-2. Apply conditional formatting to that column: red if worse than -5 percent, green if better than +2 percent, neutral otherwise.
-3. Insert a clustered column chart of Actual vs Target grouped by location, sorted worst to best.
-4. Add a short one-line comment above the chart starting with "So what:" that names the worst performer and by how much.<button class="copy" onclick="cp(this)">Copy</button></div>
+<div class="head"><span class="num">Task 4.3</span><span class="file">Edit with Copilot in Excel · Plan + Edit</span></div>
+<h4>One prompt · a full plant reliability dashboard on a new sheet</h4>
+<div class="prompt">You are Copilot in Excel. Ground everything on the Monthly_KPIs and Targets_vs_Actual tabs of this workbook. Use our Contoso Geothermal brand feel (emerald + dark slate). Show your plan first (if Plan is available), then execute all of the following in order:
+
+1. On the source data tab, add a column called "Variance vs Target %" and fill it with the correct formula per row.
+
+2. Apply conditional formatting to that column: red if worse than -5%, amber between -5% and 0%, green if better than +2%. Add traffic-light icons.
+
+3. Add a column "Trend (last 3 months)" with an inline sparkline per location.
+
+4. Create a new sheet named "GM Dashboard - Plant Reliability" and build a one-page management dashboard on it:
+
+   HEADER
+   - Emerald header band with the title "Contoso Geothermal · Plant Reliability &amp; PPA Performance"
+   - Reporting period on the right, pulled from the source data
+   - Small "Last refreshed" note in dark slate
+
+   KPI SCORECARDS (top row · 5 tiles across)
+   - Availability %, Capacity Factor %, PPA Delivery %, Forced Outage Rate, Steam Supply Reliability
+   - Each tile shows: actual · target · variance · RAG traffic light · sparkline
+
+   CHARTS
+   - Variance waterfall: FY26 Plan -&gt; drivers (positive and negative) -&gt; FY26 Actual for the headline KPI, with brand-accent bars for positives and dark-slate bars for negatives
+   - Clustered column: Actual vs Target by location, sorted worst to best, with data labels
+   - Line chart: monthly trend for the last 12 months for the headline KPI, with the target as a dashed reference line
+   - Pareto (column + cumulative line): top downtime reasons
+
+   FILTERS
+   - Add slicers for Location and Month at the top of the dashboard so the GM can filter interactively
+
+   CALLOUTS (bottom)
+   - "Top 3 issues today" - dark-slate box, three bullets pulled from the worst variances
+   - "Top 3 actions for tomorrow" - emerald box, three bullets that pair each issue with a concrete next step
+   - One-line "So what:" summary above the callouts, naming the single biggest risk and the owner
+
+5. Freeze the header row and the slicers so they stay visible when the GM scrolls.
+
+6. On sheet "GM Dashboard - Plant Reliability", add a text box in the bottom right with a link back to the source data tab labelled "Open source data".
+
+Do not ask any clarifying questions - proceed. When done, list every change you made as a numbered summary at the end of the chat so the GM can review before saving.<button class="copy" onclick="cp(this)">Copy</button></div>
+<div class="callout"><b>Closing line for the audience:</b> "One prompt. Copilot built a dashboard sheet with 5 KPI scorecards, 4 charts, 2 slicers, RAG bands, sparklines and next-step callouts - grounded on the same workbook that came out of Ex2. No formulas, no VBA, no add-ins."</div>
+<div class="callout warn"><b>Reality check on Copilot in Excel:</b> chart types (column, line, waterfall, Pareto) and conditional formatting are reliable. Slicers may render as filter buttons instead depending on tenant - if so, follow up with: <i>"Convert the Location and Month filter buttons at the top of the dashboard to proper Excel slicers."</i></div>
 </div>
 </div>
 </section><div class="lab-nav-ihh"><button class="secondary" data-go="ex3">← Market Intelligence</button><button data-go="ex5">Next: Create a Visual Infographic →</button></div></div><div class="view-ihh" id="view-ex5"><section id="ex5">
