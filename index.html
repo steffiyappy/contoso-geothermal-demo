@@ -702,51 +702,50 @@ When done, list every slide with its action-title headline in the chat so the GM
 <div class="activity">
 <div class="head"><span class="num">Task 4.3</span><span class="file">Edit with Copilot in Excel · Plan + Edit</span></div>
 <h4>One prompt · a full plant reliability dashboard on a new sheet</h4>
-<div class="prompt">You are Copilot in Excel. Ground everything on the Monthly_KPIs and Targets_vs_Actual tabs. Brand: Contoso Geothermal. Accent colour emerald (#10B981) on a dark slate background (#0F172A) with card surfaces in #1E293B. The goal is a modern, Power-BI-style executive dashboard - minimal chrome, big numbers, lots of empty space. Show your plan first (if Plan is available), then execute:
+<div class="prompt">You are Copilot in Excel. Ground everything on every tab of this workbook. Brand: Contoso Geothermal. Accent colour emerald (#10B981) on a dark slate background (#0F172A) with card surfaces in #1E293B. The goal is a printable one-page "GM Weekly Briefing Pack - Plant Reliability" - a single Excel sheet that fits on one A3 landscape page, with a McKinsey-style narrative, a what-if scenario, KPI tiles, a unit heatmap and a top-5 action list. Show your plan first, then execute in three steps.
 
-1. On the source data tab, add a calculated column "Variance vs Target %" per row. Format as percentage, 1 decimal.
+STEP A - ANALYSE THE WHOLE WORKBOOK (Chat mode, no writes yet)
+Return a 6-line executive read-out and pause for confirmation:
+1. Biggest KPI gap to FY26 target - which KPI, how big in numbers, and which unit is dragging it down the most.
+2. Best unit this quarter - name it and the ONE KPI it is winning on.
+3. Worst unit this quarter - name it and the TWO KPIs it is losing on.
+4. Peer benchmark - worst unit versus the best on the biggest-gap KPI, quantify the gap in % points or MWh.
+5. Period comparison - this month vs last month on the biggest-gap KPI, is the trend improving or worsening.
+6. One trend a human would miss (a wet-season steam decline, a weekend forced-outage spike, a 3-month capacity-factor drift).
 
-2. Convert the source range to an Excel Table so filter drop-downs appear on every column header. This is how the GM slices by Unit / Field / Month.
+STEP B - RUN THE WHAT-IF SCENARIO (still in Chat, no writes yet)
+Model: "What if we cut Forced Outage Rate by 0.5pp across the bottom-quartile units?" For each of those units, compute:
+- Columns: Unit · Current Forced Outage % · Projected Uptime Hours Recovered · Projected MWh Uplift · Projected PPA Revenue Uplift IDR · Payback (weeks)
+- assuming a one-off IDR 2 billion per unit in vibration-monitoring sensors and predictive-maintenance training
+Return as a compact table. Also flag: which units would MOVE OUT of the bottom quartile if the scenario worked, and which would still stay stuck.
 
-3. Create a new blank sheet called "GM Dashboard - Plant Reliability". Then transform it into a dark executive dashboard:
+STEP C - BUILD THE PRINTABLE BRIEFING PACK ON ONE SHEET (Edit + Plan mode)
 
-   CANVAS
-   - Fill the entire visible area (columns A to N, rows 1 to 40) with dark slate (#0F172A) as the sheet background fill
-   - Remove gridlines on this sheet (View > Gridlines off)
-   - Set default font to Segoe UI, white (#FFFFFF) text
+C.1 On the source tab, add calculated column "Variance vs Target %" (percentage, 1 decimal). Convert the source range to an Excel Table so column filter drop-downs work.
 
-   HEADER BAND (rows 1-3)
-   - Merge A1:N2, dark slate fill, white text, 22pt bold: "Contoso Geothermal - Executive KPI Dashboard"
-   - Row 3 right-aligned in smaller emerald text: "Reporting period: <latest month from source> | Last refreshed: <TODAY()>"
+C.2 Create a new sheet called "GM Weekly Briefing Pack - Plant Reliability". Set page layout to A3 landscape, fit-to-1-page-wide-by-1-page-tall, narrow margins. Then build the pack top-to-bottom:
 
-   KPI TILES (rows 5-11, one row of 5 tiles across)
-   - Five equal-width card blocks with card-surface fill (#1E293B), 1pt emerald border on the bottom edge only
-   - Tile 1: Availability - big number "97.2 %" pulled from the source table via formula. Below it in smaller text: "Target 98.0 %" and a coloured variance chip (green if better than target, emerald if within 3%, red if worse than 3% off).
-   - Tile 2: Capacity Factor - big number "94.5 %" pulled from the source table via formula. Below it in smaller text: "Target 95.0 %" and a coloured variance chip (green if better than target, emerald if within 3%, red if worse than 3% off).
-   - Tile 3: PPA Delivery - big number "99.1 %" pulled from the source table via formula. Below it in smaller text: "Target 99.5 %" and a coloured variance chip (green if better than target, emerald if within 3%, red if worse than 3% off).
-   - Tile 4: Forced Outage Rate - big number "1.8 %" pulled from the source table via formula. Below it in smaller text: "Target 1.5 %" and a coloured variance chip (green if better than target, emerald if within 3%, red if worse than 3% off).
-   - Tile 5: Steam Reliability - big number "99.4 %" pulled from the source table via formula. Below it in smaller text: "Target 99.0 %" and a coloured variance chip (green if better than target, emerald if within 3%, red if worse than 3% off).
-   - Inside each tile use 28pt bold for the big number, 10pt for the label above and the target below
+   CANVAS - fill visible area (columns A to S, rows 1 to 60) with dark slate (#0F172A), gridlines off, default font Segoe UI, white text.
 
-   INSIGHT CHART (rows 13-28, spans full width)
-   - One horizontal bar chart titled "Availability by Unit (Actual vs Target)"
-   - Two series per Unit: Actual (solid emerald #10B981) and Target (thin dark-grey outline, no fill)
-   - Sort bars worst-to-best on variance so the GM's eye goes to the problem first
-   - No chart border, no gridlines, no legend box (put a small manual legend in the top-right of the chart area using two coloured squares + labels)
-   - Chart plot area fill: #1E293B. Chart area fill: #0F172A. Axis labels white 10pt. Title white 14pt bold left-aligned.
+   1. HEADER BAND (rows 1-3) - merge A1:S2, 22pt bold white: "Contoso Geothermal - GM Weekly Briefing Pack". Row 3 right-aligned emerald 10pt: reporting period from latest month + "Last refreshed: <TODAY()>".
 
-   INSIGHT STRIP (rows 30-33, full width)
-   - Merge into one dark-slate box with a 2pt top border in emerald
-   - White 12pt bold text: "So what:" followed by one line naming the single biggest variance and the owner
-   - Below it in 10pt emerald: "Next step:" and one concrete action for this week
+   2. NARRATIVE MEMO (rows 4-11) - merge A4:S11, card surface #1E293B, 2pt emerald top border, white 11pt. Write a McKinsey-style 5-sentence exec memo grounded on STEP A findings. Structure: "So what:" sentence 1 (headline finding), sentence 2 (evidence in numbers), sentence 3 (peer benchmark from finding 4), sentence 4 (trend from finding 5 or 6), sentence 5 (the ask). Bold the numbers.
 
-4. Freeze rows 1-3 so the header stays visible.
+   3. KPI TILES (rows 13-20) - one row of 5 cards, each card fill #1E293B with 1pt emerald bottom border. Use the top-5 KPIs Copilot picked in STEP A (default: Availability, Capacity Factor, PPA Delivery, Forced Outage Rate, Steam Reliability). Each tile: 10pt white label at top, 32pt bold big number in the middle, 10pt "Target X" below, coloured variance chip (green better than target, emerald within 3%, dark red worse than 3%), and a 3-month sparkline drawn as a mini line chart inside the card.
 
-5. On the dashboard, add a small text link bottom-right (row 40) in emerald 9pt: "Open source data - use column filters to slice by Unit / Field / Month".
+   4. UNIT HEATMAP (rows 22-38) - a conditional-formatted grid: rows = unit names, columns = the 5 KPIs. Cell colour = performance vs target (deep red = far below, orange = slightly below, dark surface = on target, green = above). Include an average column at the far right. Sort rows worst to best on the biggest-gap KPI so the eye lands on the problem first. Above the heatmap, 12pt bold white title: "Unit Heatmap - who is on target, who is not".
 
-Do not ask any clarifying questions - proceed. When done, list every change you made as a numbered summary at the end of the chat so the GM can review before saving.<button class="copy" onclick="cp(this)">Copy</button></div>
-<div class="callout"><b>Closing line for the audience:</b> "One prompt. Copilot built a dashboard sheet with 5 KPI scorecards, 4 charts, 2 slicers, RAG bands, sparklines and next-step callouts - grounded on the same workbook that came out of Ex2. No formulas, no VBA, no add-ins."</div>
-<div class="callout warn"><b>Reality check on Copilot in Excel:</b> formulas, conditional formatting, sparklines, table filters and chart types (column, line, waterfall, Pareto) are the reliable parts. Slicers wired across multiple charts are <b>not</b> something Copilot Edit produces end-to-end today - that is why this prompt uses a Table with column filter drop-downs instead, which the GM can actually use straight away. If a chart comes back as the wrong type, follow up with: <i>"Redo the variance chart on the dashboard as a proper waterfall - plan → drivers → actual - with emerald for positive steps and dark slate for negative steps."</i></div>
+   5. WHAT-IF SCENARIO CARD (rows 40-49) - merge A40:S40, 14pt bold emerald title: "What if we cut Forced Outage Rate by 0.5pp across the bottom-quartile units?". Below, an embedded table from STEP B with the columns listed there. Format currency values with thousands separators, right-aligned, bold the totals row. Below the table, a 10pt white "So what:" summary line.
+
+   6. TOP 5 ACTIONS FOR THE WEEK (rows 51-58) - card surface #1E293B, 2pt emerald top border, 12pt bold white title. Then 5 rows, each with columns: Action · Owner · By when · Expected impact. Pull the actions from STEP A findings and STEP B scenario. Actions must be concrete, specific to named units, and tied to numbers.
+
+   7. FOOTER (row 60) - emerald 9pt right-aligned: "Open source data - use column filters to slice by Unit / Field / Month".
+
+C.3 Freeze rows 1-3. Set print area = A1:S60. Add a print header with the brand placeholder and page number.
+
+When done: (a) re-state the top three findings from STEP A, (b) re-state the top three what-if outcomes from STEP B, (c) list every change made in STEP C as a numbered summary so the GM can review before saving. Do not ask any other clarifying questions - proceed.<button class="copy" onclick="cp(this)">Copy</button></div>
+<div class="callout"><b>Why this is the wow moment:</b> one paste, the GM gets the story (STEP A), the scenario (STEP B) and the printable one-page briefing pack (STEP C). The narrative is not a template - Copilot wrote it after reading every tab. The what-if actually maths the impact per unit. The heatmap makes every unit readable in one glance. The action list names names.</div>
+<div class="callout warn"><b>Reality check on Copilot in Excel today:</b> calculated columns, table filters, conditional formatting, cell fills, sparklines and simple bar/column charts are reliable. Copilot may not get the sheet-wide dark fill perfect in one shot - if the background comes back white, follow up with: <i>"Fill the entire briefing pack sheet A1:S60 with dark slate #0F172A and set the sheet gridlines off."</i> If the heatmap looks pale, follow up with: <i>"Restyle the unit heatmap with a 4-stop colour scale: deep red #7F1D1D for far below target, orange #F97316 for slightly below, dark surface #1E293B for on target, green #16A34A for above target."</i></div>
 </div>
 </div>
 </section><div class="lab-nav-ihh"><button class="secondary" data-go="ex3">← Market Intelligence</button><button data-go="ex5">Next: Create a Visual Infographic →</button></div></div><div class="view-ihh" id="view-ex5"><section id="ex5">
